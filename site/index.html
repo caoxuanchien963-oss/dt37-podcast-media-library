@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Podwave - thư viện podcast và âm thanh của bạn.">
+  <title>Podwave — Podcast & Media Library</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Podwave trang chủ">
+        <span class="brand-mark">◖</span><span>podwave<span class="brand-dot">.</span></span>
+      </a>
+      <p class="nav-label">KHÔNG GIAN CỦA BẠN</p>
+      <button class="nav-item active" data-view="all"><span>⌂</span> Khám phá</button>
+      <button class="nav-item" data-view="saved"><span>♡</span> Đã lưu <span class="nav-count" id="saved-count">0</span></button>
+      <button class="nav-item" data-view="recent"><span>◷</span> Nghe gần đây</button>
+      <div class="sidebar-bottom">
+        <div class="mini-card">
+          <div class="mini-icon">♫</div>
+          <strong>Không gian âm thanh</strong>
+          <p>Tìm một câu chuyện mới cho hôm nay.</p>
+        </div>
+        <div class="profile"><div class="avatar">C</div><div><strong>Người nghe</strong><small>Gói miễn phí</small></div><span class="dots">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Thư viện</span><span class="slash">/</span><strong id="page-label">Khám phá</strong></div>
+        <div class="top-actions"><span class="status-dot"></span><span class="status-text">Không gian cá nhân</span><button class="avatar small" aria-label="Tài khoản">C</button></div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="sparkle">✦</span> YOUR DAILY SOUNDTRACK</span>
+          <h1>Mỗi ngày,<br><em>một góc nhìn mới.</em></h1>
+          <p>Khám phá podcast truyền cảm hứng, kiến thức và những câu chuyện đáng nghe.</p>
+          <a href="#library" class="primary-button">Khám phá thư viện <span>↗</span></a>
+        </div>
+        <div class="hero-art" aria-label="Minh họa âm thanh">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="art-disc"><div class="disc-center">pw</div></div>
+          <div class="floating-note note-one">♫</div><div class="floating-note note-two">✦</div>
+          <div class="sound-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="art-caption">PRESS PLAY<br><b>FIND YOUR FLOW</b></div>
+        </div>
+      </section>
+
+      <section class="stats-row">
+        <div class="stat"><span class="stat-icon purple">♫</span><div><strong>120+</strong><small>Tập podcast</small></div></div>
+        <div class="stat"><span class="stat-icon peach">◷</span><div><strong>24 giờ</strong><small>Ý tưởng mỗi ngày</small></div></div>
+        <div class="stat"><span class="stat-icon mint">♡</span><div><strong>Yours</strong><small>Thư viện cá nhân</small></div></div>
+      </section>
+
+      <section class="library-section" id="library">
+        <div class="section-heading"><div><span class="section-kicker">CURATED FOR YOU</span><h2 id="library-title">Dành cho bạn</h2></div><span class="result-count" id="result-count">6 nội dung</span></div>
+        <div class="toolbar">
+          <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Tìm podcast, chủ đề..." aria-label="Tìm podcast"></label>
+          <div class="filter-group" role="group" aria-label="Lọc theo chủ đề">
+            <button class="filter-chip selected" data-category="Tất cả">Tất cả</button>
+            <button class="filter-chip" data-category="Phát triển">Phát triển</button>
+            <button class="filter-chip" data-category="Công nghệ">Công nghệ</button>
+            <button class="filter-chip" data-category="Đời sống">Đời sống</button>
+          </div>
+        </div>
+        <div class="podcast-grid" id="podcast-grid"></div>
+        <div class="empty-state hidden" id="empty-state"><div>⌕</div><h3>Chưa tìm thấy nội dung</h3><p>Thử từ khóa hoặc chủ đề khác nhé.</p></div>
+      </section>
+
+      <footer><span class="footer-brand">podwave<span class="brand-dot">.</span></span><span>Podcast & Media Library · Đề tài 37</span><span>Made for curious minds ✦</span></footer>
+    </main>
+  </div>
+
+  <div class="player-bar">
+    <div class="now-playing"><div class="player-cover" id="player-cover">◉</div><div><strong id="now-title">Chọn một tập để bắt đầu</strong><small id="now-subtitle">Podwave Library</small></div></div>
+    <div class="player-controls"><button id="previous-button" aria-label="Tập trước">↶</button><button class="play-button" id="main-play" aria-label="Phát hoặc tạm dừng">▶</button><button id="next-button" aria-label="Tập tiếp theo">↷</button><div class="progress-row"><span id="current-time">00:00</span><input id="progress" type="range" min="0" max="100" value="0" aria-label="Tiến trình phát"><span id="total-time">18:42</span></div></div>
+    <div class="player-extra"><span>♫</span><div class="volume-track"><i></i></div><button aria-label="Danh sách phát">☷</button></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
